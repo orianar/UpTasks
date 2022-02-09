@@ -73,6 +73,7 @@ module.exports = function(){
     //Crear nueva cuenta
     router.get('/crear-cuenta', usuariosController.formCrearCuenta);
     router.post('/crear-cuenta', usuariosController.crearCuenta);
+    router.get('/confirmar/:correo', usuariosController.confirmarCuenta);
 
     //Iniciar Sesion
     router.get('/iniciar-sesion', usuariosController.formIniciarSesion);
@@ -86,7 +87,8 @@ module.exports = function(){
 
     router.get('/restablecer', usuariosController.formRestablecerPassword);
     router.post('/restablecer', authController.enviarToken);
-    router.get('/restablecer/:token', authController.resetPassword);
+    router.get('/restablecer/:token', authController.validarToken);
+    router.post('/restablecer/:token', authController.actualizarPassword);
 
     return router;
 }

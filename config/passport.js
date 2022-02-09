@@ -16,7 +16,10 @@ passport.use(
             console.log("called from passport")
             try {
                 const usuario = await Usuarios.findOne({
-                    where: {email: email}
+                    where: {
+                        email,
+                        activo: 1
+                    }
                 });
                 // El usuario existe, password incorecto
                 if (!usuario.verificarPassword(password)){
