@@ -11,4 +11,4 @@ const db = new Sequelize('uptasknade', 'root', 'rute', {
 
 });
 
-   module.exports= db;
+module.exports= db;
